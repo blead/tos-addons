@@ -1,0 +1,43 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - addons.json
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: fetch all tags
+        run: git fetch --tags
+      - name: setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.8'
+      - name: setup go
+        uses: actions/setup-go@v1
+        with:
+          go-version: '1.13'
+      - name: add GOPATH
+        run: |
+          echo "::set-env name=GOPATH::$(go env GOPATH)"
+          echo "::add-path::$(go env GOPATH)/bin"
+      - name: install ghr
+        run: go get -u github.com/tcnksm/ghr
+      - name: build IPF files
+        run: python .build/build.py addons.json
+      - name: count output files
+        id: count
+        run: echo "::set-output name=file_count::$(ls _out/*.ipf | wc -l)"
+      - name: create releases
+        if: steps.count.outputs.file_count > 0
+        run: |
+          for file in _out/*.ipf
+          do
+            ghr "$(basename $file .ipf)" "$file"
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
