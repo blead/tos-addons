@@ -1,0 +1,30 @@
+[
+  {
+    "name" : "skillchat",
+    "file" : "skillchat",
+    "extension" : "ipf",
+    "fileVersion" : "v0.2.0",
+    "releaseTag" : "skillchat-v0.2.0",
+    "unicode" : "🍞",
+    "description" : "Send chat messages based on skill cooldowns.",
+    "tags" : [
+      "cooldown",
+      "cd",
+      "cast",
+      "macro"
+    ]
+  },
+  {
+    "name" : "groupchatalias",
+    "file" : "groupchatalias",
+    "extension" : "ipf",
+    "fileVersion" : "v0.1.0",
+    "releaseTag" : "groupchatalias-v0.1.0",
+    "unicode" : "🍞",
+    "description" : "Create group chat aliases for easier switching commands.",
+    "tags" : [
+      "shortcut",
+      "channel"
+    ]
+  }
+]
