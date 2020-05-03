@@ -1,6 +1,8 @@
 # skillchat
 Send chat messages based on skill cooldowns.
 
+**As reported in issue #1, currently `onReady` is broken. Use `onCooldown1` as a bootleg workaround for now. I will probably check later but not soon. PR would also be highly appreciated.**
+
 ## Description
 This addon is inspired by [cdtracker](https://github.com/NoctisCepheus/ToS-Addons-Cepheus/tree/master/cdtracker-rebuild). It is a more lightweight alternative I made to solve some issues I have with cdtracker.  
 It is specifically made just for sending chat messages based on skill cooldowns, and does not include any other alerting functions as opposed to cdtracker.
@@ -41,7 +43,7 @@ The configuration file is in strict JSON format. Here is an example with 2 skill
 - There are multiple events available which can trigger sending a chat message. All events are optional. You can simply remove them if you do not want to utilize them.
   - `onPress`: This is like cdtracker's message on cast functionality. It is triggered when you press the skill button. Note that it will trigger even if the skill was not cast (e.g., when you are in an animation delay or lagging).
   - `onCast`: This is a bit more specialized version of `onPress`, it tracks the usage of skills through cooldowns (or overheats if applicable) and will trigger just after the skill has been cast.
-  - `onReady`: This will trigger when the skill is ready.
+  - `onReady`: This will trigger when the skill is ready. (**currently broken, use `onCooldown1` for now.**)
   - `onCooldownX` where X is an integer: This will trigger when the cooldown reaches X seconds.
 - The messages are simply the same as the ones you can normally send in chat. Adding `/p` will send it to party chat, for example. There are some extra parameters you can use which will be dynamically replaced by the addon:
   - `%s`: skill name.
