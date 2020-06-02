@@ -1,7 +1,7 @@
 # skillchat
 Send chat messages based on skill cooldowns.
 
-**As reported in issue #1, currently `onReady` is broken. Use `onCooldown1` as a bootleg workaround for now. I will probably check later but not soon. PR would also be highly appreciated.**
+**As of 2020-06-02, this is now totally broken. I don't know if I will ever get to fix it as I have already uninstalled the game. Feel free to make a fork and modify as needed, the build script should still work properly (I hope). I can also accept Pull Requests.**
 
 ## Description
 This addon is inspired by [cdtracker](https://github.com/NoctisCepheus/ToS-Addons-Cepheus/tree/master/cdtracker-rebuild). It is a more lightweight alternative I made to solve some issues I have with cdtracker.  
